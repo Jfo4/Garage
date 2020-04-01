@@ -1,23 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Garage
 {
     class Program
     {
+        private static GarageHandler handler;
+
         static void Main(string[] args)
         {
-            //InitGarage();
-            //Menu();
+            InitGarage();
+            Menu();
 
             // Ett fordon i taget skapas med olika attibut
-            var vechicle1 = new Boat("AAA020", 0, "Red", 12.2);
-            var vechicle2 = new Car("OOS005", 4, "Blue", "Diesel");
-            var vechicle3 = new Airplane("ARN747", 8, "Orange", 4);
+            //var vechicle1 = new Boat("AAA020", 0, "Red", 12.2);
+            //var vechicle2 = new Car("OOS005", 4, "Blue", "Diesel");
+            //var vechicle3 = new Airplane("ARN747", 8, "Orange", 4);
+            //Console.WriteLine($"Length: {vechicle1.Length}");
+            //Console.WriteLine($"Fuel: {vechicle2.FuelType}");
+            //Console.WriteLine($"Wheels: {vechicle3.Wheels}");
 
-            Console.WriteLine($"Length: {vechicle1.Length}");
-            Console.WriteLine($"Fuel: {vechicle2.FuelType}");
-            Console.WriteLine($"Wheels: {vechicle3.Wheels}");
+            //string[] animals = { "Cat", null, "fox", "donkey", null, "alligator" };
+            //var used = animals.Count(s => s != null); // System.Linq;
+            //var empty = animals.Count(s => s == null); // System.Linq;
+            //var total = animals.Length;
+            //Console.WriteLine($"Used: {used}, empty: {empty}, total: {total}");
 
             //    new Airplane("AAA010", 8, "White", 4),
             //    new Car("CAR321", 4, "Blue", "Diesel"),  // -.. .. . ... . .-..
@@ -41,6 +49,8 @@ namespace Garage
                 if (parkingInput > 1 && parkingInput <= 50)
                 {
                     // Skapa Garage med "parkingInput" platser.
+                    handler = new GarageHandler();
+                    handler.CreateGarageWithSize(parkingInput);
                     exit = true;
                 }
                 else
@@ -70,6 +80,7 @@ namespace Garage
                         Park();
                         break;
                     case "2":
+                        Leave();
                         break;
                     case "3":
                         break;
@@ -82,6 +93,12 @@ namespace Garage
                         break;
                 }
             } while (!exit);
+        }
+
+        private static void Leave()
+        {
+            //ToDo: Take input
+            var ok = handler.LeaveGarage("Abc123");
         }
 
         private static void Park()
