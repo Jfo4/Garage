@@ -17,46 +17,46 @@ namespace Garage
             Color = color;
         }
     }
-    class Car : Vehicle
+    class Airplane : Vehicle
     {
-        public string Brand;
-        public Car(string regno, int wheels, string color, string brand) : base(regno, wheels, color)
+        public int NumberOfEngines;
+        public Airplane(string regno, int wheels, string color, int numberofengines) : base(regno, wheels, color)
         {
-            Brand = brand;
-        }
-    }
-    class Motorcycle : Vehicle
-    {
-        public bool Offroad;
-        public Motorcycle(string regno, int wheels, string color, bool offroad) : base(regno, wheels, color)
-        {
-            Offroad = offroad;
-        }
-    }
-    class Bus : Vehicle
-    {
-        public int Passengers;
-        public Bus(string regno, int wheels, string color, int passengers) : base(regno, wheels, color)
-        {
-            Passengers = passengers;
+            NumberOfEngines = numberofengines;
         }
     }
     class Boat : Vehicle
     {
-        public bool SailingBoat;
-        public bool MotorBoat;
-        public Boat(string regno, int wheels, string color, bool sailingboat, bool motorboat) : base(regno, wheels, color)
+        public double Length;
+        public Boat(string regno, int wheels, string color, double length) : base(regno, wheels, color)
         {
-            SailingBoat = sailingboat;
-            MotorBoat = motorboat;
+            Length = length;
         }
     }
-    class Airplane : Vehicle
+
+    class Bus : Vehicle
     {
-        public double Wingspan;
-        public Airplane(string regno, int wheels, string color, double wingspan) : base(regno, wheels, color)
+        public int NumberOfSeats;
+
+        public Bus(string regno, int wheels, string color, int numberofseats) : base(regno, wheels, color)
         {
-            Wingspan = wingspan;
+            NumberOfSeats = numberofseats;
+        }
+    }
+    class Car : Vehicle
+    {
+        public string FuelType;
+        public Car(string regno, int wheels, string color, string fueltype) : base(regno, wheels, color)
+        {
+            FuelType = fueltype;
+        }
+    }
+    class Motorcycle : Vehicle
+    {
+        public int CylinderVolume;
+        public Motorcycle(string regno, int wheels, string color, int cylindervolume) : base(regno, wheels, color)
+        {
+            CylinderVolume = cylindervolume;
         }
     }
 }
