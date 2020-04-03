@@ -42,17 +42,15 @@ namespace Garage
         {
             handler.ParkVehicle(new Motorcycle("MCA829", 2, "Green", 750));
             handler.ParkVehicle(new Airplane("AAA010", 8, "White", 4));
-            handler.ParkVehicle(new Car("CAR321", 4, "Blue", "Diesel"));  // -.. .. . ... . .-..
+            handler.ParkVehicle(new Car("CAR321", 4, "Blue", "Diesel"));
             handler.ParkVehicle(new Motorcycle("BRM840", 2, "Svart", 754));
             handler.ParkVehicle(new Boat("OOS005", 0, "Green", 12.4));
             handler.ParkVehicle(new Bus("MMM888", 6, "Brown", 24));
             handler.ParkVehicle(new Boat("AAA020", 0, "Red", 12.2));
             handler.ParkVehicle(new Car("SOS505", 3, "Yellow", "Diesel"));
             handler.ParkVehicle(new Airplane("ARN747", 8, "Orange", 4));
-            handler.ListVehicle();
-            Console.ReadLine();
         }
-        
+
         private static void Menu()
         {
             bool exit = false;
@@ -96,7 +94,7 @@ namespace Garage
         {
             Console.Clear();
             Console.WriteLine("Lista alla fordon i garaget.");
-            
+            Console.WriteLine(handler.ListVehicle());
             Console.ReadKey();
         }
 

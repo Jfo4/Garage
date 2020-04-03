@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace Garage
 {
@@ -16,6 +17,22 @@ namespace Garage
             Wheels = wheels;
             Color = color;
         }
+
+        public virtual string Print()
+        {
+            return $"Typ:{this.GetType().Name}: Regnr:{Regno} Antal hjul:{Wheels} ";
+
+            //var builder = new StringBuilder().Append($"Type:{this.GetType().Name}");
+            //var props = this.GetType().GetProperties();
+            //foreach (var prop in props)
+            //{
+            //    builder.Append($"{prop.Name}:{prop.GetValue(this, null)?.ToString()}");
+            //}
+
+            //Array.ForEach(this.GetType().GetProperties().ToArray(), p => builder.Append($"{p.Name}:{p.GetValue(this, null)?.ToString()}"));
+            
+            //return builder.ToString();
+        }
     }
     class Airplane : Vehicle
     {
@@ -24,6 +41,10 @@ namespace Garage
         {
             NumberOfEngines = numberofengines;
         }
+        public override string Print()
+        {
+            return base.Print() + $"Antal motorer:{NumberOfEngines}";
+        }
     }
     class Boat : Vehicle
     {
@@ -31,6 +52,10 @@ namespace Garage
         public Boat(string regno, int wheels, string color, double length) : base(regno, wheels, color)
         {
             Length = length;
+        }
+        public override string Print()
+        {
+            return base.Print() + $"Längd:{Length}";
         }
     }
 
@@ -42,6 +67,10 @@ namespace Garage
         {
             NumberOfSeats = numberofseats;
         }
+        public override string Print()
+        {
+            return base.Print() + $"Antal säten:{NumberOfSeats}";
+        }
     }
     class Car : Vehicle
     {
@@ -50,6 +79,10 @@ namespace Garage
         {
             FuelType = fueltype;
         }
+        public override string Print()
+        {
+            return base.Print() + $"Bränsle:{FuelType}";
+        }
     }
     class Motorcycle : Vehicle
     {
@@ -57,6 +90,10 @@ namespace Garage
         public Motorcycle(string regno, int wheels, string color, int cylindervolume) : base(regno, wheels, color)
         {
             CylinderVolume = cylindervolume;
+        }
+        public override string Print()
+        {
+            return base.Print() + $"Cylindervolym:{CylinderVolume}";
         }
     }
 }

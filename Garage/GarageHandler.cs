@@ -37,13 +37,16 @@ namespace Garage
             else
                 return false;
         }
-        internal void ListVehicle()
+
+        internal string ListVehicle()
         {
+            var builder = new StringBuilder();
             foreach (var vehicle in garage)
             {
-                Console.WriteLine($"{vehicle}, {vehicle.Regno}");
+                if(vehicle != null)
+                    builder.AppendLine(vehicle.Print());
             }
-            Console.WriteLine($"Free: {garage.Free}");
+            return builder.ToString();
         } 
         //internal IEnumerable<Vehicle> ListVehicle()
         //{
