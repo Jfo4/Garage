@@ -56,7 +56,6 @@ namespace Garage
                     vehicles[i] = vehicle;
                     return true;
                 }
-
             }
             return false;
         }

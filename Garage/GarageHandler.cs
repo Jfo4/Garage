@@ -14,7 +14,7 @@ namespace Garage
             garage = new Garage<Vehicle>(capacity);
         }
 
-        internal bool LeaveGarage(string regno)
+        public bool LeaveGarage(string regno)
         {
             if (garage.Occupied > 0) // Det måste finnas fordon parkerade.
             {
