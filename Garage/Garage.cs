@@ -9,7 +9,8 @@ namespace Garage
     class Garage<T> : IEnumerable<T> where T : Vehicle
     {
         public int Capacity => capacity;
-        public int Occupied => vehicles.Count();
+       // public int Occupied => vehicles.Count();  ger fel i GarageTest.
+        public int Occupied => vehicles.Count(s => s != null);
         public int Free => vehicles.Count(s => s == null);
 
         private readonly int capacity;
@@ -58,11 +59,6 @@ namespace Garage
 
             }
             return false;
-        }
-
-        internal void List()
-        {
-   
         }
 
         IEnumerator IEnumerable.GetEnumerator()

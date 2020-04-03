@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Garage
 {
-    class Vehicle
+    public class Vehicle
     {
         public string Regno;
         public int Wheels;
@@ -20,7 +20,7 @@ namespace Garage
 
         public virtual string Print()
         {
-            return $"Typ:{this.GetType().Name}: Regnr:{Regno} Antal hjul:{Wheels} ";
+            return $"Typ:{this.GetType().Name} Regnr:{Regno} Antal hjul:{Wheels} ";
 
             //var builder = new StringBuilder().Append($"Type:{this.GetType().Name}");
             //var props = this.GetType().GetProperties();
@@ -34,7 +34,7 @@ namespace Garage
             //return builder.ToString();
         }
     }
-    class Airplane : Vehicle
+    public class Airplane : Vehicle
     {
         public int NumberOfEngines;
         public Airplane(string regno, int wheels, string color, int numberofengines) : base(regno, wheels, color)
@@ -46,7 +46,7 @@ namespace Garage
             return base.Print() + $"Antal motorer:{NumberOfEngines}";
         }
     }
-    class Boat : Vehicle
+    public class Boat : Vehicle
     {
         public double Length;
         public Boat(string regno, int wheels, string color, double length) : base(regno, wheels, color)
@@ -59,7 +59,7 @@ namespace Garage
         }
     }
 
-    class Bus : Vehicle
+    public class Bus : Vehicle
     {
         public int NumberOfSeats;
 
@@ -72,7 +72,7 @@ namespace Garage
             return base.Print() + $"Antal säten:{NumberOfSeats}";
         }
     }
-    class Car : Vehicle
+    public class Car : Vehicle
     {
         public string FuelType;
         public Car(string regno, int wheels, string color, string fueltype) : base(regno, wheels, color)
@@ -84,7 +84,7 @@ namespace Garage
             return base.Print() + $"Bränsle:{FuelType}";
         }
     }
-    class Motorcycle : Vehicle
+    public class Motorcycle : Vehicle
     {
         public int CylinderVolume;
         public Motorcycle(string regno, int wheels, string color, int cylindervolume) : base(regno, wheels, color)

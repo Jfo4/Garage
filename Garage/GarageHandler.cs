@@ -5,11 +5,11 @@ using System.Linq;
 
 namespace Garage
 {
-    class GarageHandler
+    public class GarageHandler
     {
         private Garage<Vehicle> garage;
 
-        internal void CreateGarageWithSize(int capacity)
+        public void CreateGarageWithSize(int capacity)
         {
             garage = new Garage<Vehicle>(capacity);
         }
@@ -27,9 +27,9 @@ namespace Garage
             else
                 return false;
         }
-        internal bool ParkVehicle(Vehicle vehicle)
+
+        public bool ParkVehicle(Vehicle vehicle)
         {
-          
             if (garage.Free > 0) // Det måste finnas lediga platser.
             {
                 return garage.Park(vehicle);
