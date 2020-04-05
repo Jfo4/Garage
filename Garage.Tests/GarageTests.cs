@@ -15,8 +15,11 @@ namespace Garage.Tests
             handler.CreateGarageWithSize(5);
             handler.ParkVehicle(new Motorcycle("MCA829", 2, "Green", 750));
             handler.ParkVehicle(new Airplane("AAA010", 8, "White", 4));
-            
-            Assert.AreEqual(2, handler.OccupiedParkingLots);
+            var expected = 2;
+
+            var actual = handler.OccupiedParkingLots;
+
+            Assert.AreEqual(expected, actual);
         }
         [TestMethod]
         public void ComputesCreateGarageWithSizeFree()
@@ -25,8 +28,11 @@ namespace Garage.Tests
             handler.CreateGarageWithSize(8);
             handler.ParkVehicle(new Motorcycle("MCA829", 2, "Green", 750));
             handler.ParkVehicle(new Airplane("AAA010", 8, "White", 4));
+            var expected = 6;
 
-            Assert.AreEqual(6, handler.FreeParkingLots);
+            var actual = handler.FreeParkingLots;
+
+            Assert.AreEqual(expected, actual);
         }
         [TestMethod]
         public void ComputesLeaveGarageTrue()
@@ -35,8 +41,11 @@ namespace Garage.Tests
             handler.CreateGarageWithSize(8);
             handler.ParkVehicle(new Motorcycle("MCA829", 2, "Green", 750));
             handler.ParkVehicle(new Airplane("AAA010", 8, "White", 4));
+            var expected = true;
 
-            Assert.AreEqual(true, handler.LeaveGarage("AAA010"));
+            var actual = handler.LeaveGarage("AAA010");
+
+            Assert.AreEqual(expected, actual);
         }
         [TestMethod]
         public void ComputesLeaveGarageFalse()

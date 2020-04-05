@@ -48,15 +48,39 @@ namespace Garage
             }
             return builder.ToString();
         } 
-        //internal IEnumerable<Vehicle> ListVehicle()
-        //{
-        //    foreach (var vehicle in garage)
-        //    {
-        //        yield return vehicle;
-        //    }
-        //} 
+ 
         public int FreeParkingLots => garage.Free;
 
         public int OccupiedParkingLots => garage.Occupied;
+
+        public string SearchVehicle(string regno, string color, int wheels)
+        {
+
+            if (garage.Occupied > 0)
+            {
+                var builder = new StringBuilder();
+
+                var queryRegno = garage.Where(m => m.Regno.ToUpper().Contains(regno.ToUpper()));
+                var queryColor = garage.Where(m => m.Color.ToUpper() == color.ToUpper());
+                var queryWheels = garage.Where(m => m.Wheels == wheels);
+
+                var queryOr = queryRegno.Union(queryColor).Union(queryWheels);
+                var queryAnd = queryRegno.Intersect(queryColor).Intersect(queryWheels);
+
+                builder.AppendLine("\n OR\n");
+                foreach (var vehicle in queryOr)
+                {
+                    builder.AppendLine(vehicle.Print());
+                }
+                builder.AppendLine("\n AND\n");
+                foreach (var vehicle in queryAnd)
+                {
+                    builder.AppendLine(vehicle.Print());
+                }
+                return builder.ToString();
+            }
+            else
+                return null;
+        }
     }
 }
