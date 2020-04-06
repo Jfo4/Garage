@@ -20,7 +20,7 @@ namespace Garage
 
         public virtual string Print()
         {
-            return $"Typ:{this.GetType().Name} Regnr:{Regno} Antal hjul:{Wheels} Färg:{Color} ";
+            return $"Typ:{this.GetType().Name, -10} Regnr:{Regno, -8} Antal hjul:{Wheels, -5} Färg:{Color, -15} ";
 
             //var builder = new StringBuilder().Append($"Type:{this.GetType().Name}");
             //var props = this.GetType().GetProperties();

@@ -90,10 +90,6 @@ namespace Garage
             for (int i = 1; i < lines.Length; i++)
             {
                 var vehicle = lines[i].Split(";");
-                //for (int j = 0; j < vehicle.Length; j++)
-                //{
-                //    Console.WriteLine($"{j}, {vehicle[j]}");
-                //}
                 switch (vehicle[0])
                 {
                     case "Airplane":

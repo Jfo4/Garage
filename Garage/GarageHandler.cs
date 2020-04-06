@@ -53,9 +53,9 @@ namespace Garage
 
         public int OccupiedParkingLots => garage.Occupied;
 
+         // Todo: Search for and count vehicle by type: car, boat...
         public string SearchVehicle(string regno, string color, int wheels)
         {
-
             if (garage.Occupied > 0)
             {
                 var builder = new StringBuilder();
